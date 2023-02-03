@@ -1,0 +1,3 @@
+org\example\testUtils\SetupUtil.class
+org\example\tests\SampleTest.class
+org\example\tests\BaseTest.class
