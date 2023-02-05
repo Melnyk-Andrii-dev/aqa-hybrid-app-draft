@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-TestSuite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuite" title="org.example.tests.SampleTest" class="method navigator-link" hash-for-method="sampleTestStep">sampleTestStep</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-TestSuite" title="org.example.tests.MenuNavigationTests" class="method navigator-link" hash-for-method="userCanUseMainMenu">userCanUseMainMenu</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-TestSuite -->
@@ -120,14 +120,14 @@
           <div class="suite-TestSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">org.example.tests.SampleTest</span>
+              <span class="class-name">org.example.tests.MenuNavigationTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="sampleTestStep">
-                  </a> <!-- sampleTestStep -->
-                  <span class="method-name">sampleTestStep</span>
+                  <a name="userCanUseMainMenu">
+                  </a> <!-- userCanUseMainMenu -->
+                  <span class="method-name">userCanUseMainMenu</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -141,14 +141,14 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;TestSuite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
-  &lt;test thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;Pixel Test&quot; verbose=&quot;0&quot;&gt;
+&lt;suite thread-count=&quot;1&quot; parallel=&quot;tests&quot; name=&quot;TestSuite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;test name=&quot;Pixel Test&quot;&gt;
     &lt;parameter name=&quot;platformVersion&quot; value=&quot;11&quot;/&gt;
     &lt;parameter name=&quot;udid&quot; value=&quot;emulator-5554&quot;/&gt;
     &lt;parameter name=&quot;platformName&quot; value=&quot;Android&quot;/&gt;
     &lt;parameter name=&quot;deviceName&quot; value=&quot;emulator-5554&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;org.example.tests.SampleTest&quot;/&gt;
+      &lt;class name=&quot;org.example.tests.MenuNavigationTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Pixel Test --&gt;
 &lt;/suite&gt; &lt;!-- TestSuite --&gt;
@@ -190,14 +190,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'sampleTestStep')
-data.setCell(0, 2, 'org.example.tests.SampleTest')
-data.setCell(0, 3, 29590);
+data.setCell(0, 1, 'userCanUseMainMenu')
+data.setCell(0, 2, 'org.example.tests.MenuNavigationTests')
+data.setCell(0, 3, 33433);
 window.suiteTableData['TestSuite']= { tableData: data, tableDiv: 'times-div-TestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 29 seconds</span>
+              <span class="suite-total-time">Total running time: 33 seconds</span>
               <div id="times-div-TestSuite">
               </div> <!-- times-div-TestSuite -->
             </div> <!-- times-div -->
@@ -223,18 +223,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">org.example.tests.SampleTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">org.example.tests.MenuNavigationTests</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setup(emulator-5554, emulator-5554, Android, 11)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">sampleTestStep</span>
-                <span class="method-start">7666 ms</span>
+                <span class="method-name">userCanUseMainMenu</span>
+                <span class="method-start">10021 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeDriver</span>
-                <span class="method-start">37258 ms</span>
+                <span class="method-start">43455 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

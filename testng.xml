@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestSuite" parallel="tests" thread-count="2">
+<suite name="TestSuite" parallel="tests" thread-count="1">
 	<test name="Pixel Test">
 		<parameter name="deviceName" value="emulator-5554"/>
 		<parameter name="udid" value="emulator-5554"/>
 		<parameter name="platformName" value="Android"/>
 		<parameter name="platformVersion" value="11"/>
 		<classes>
-			<class name="org.example.tests.SampleTest"/>
+			<class name="org.example.tests.MenuNavigationTests"/>
 		</classes>
 	</test>
 <!--	<test name="Nexus Test">-->
@@ -15,7 +15,7 @@
 <!--		<parameter name="platformName" value="Android"/>-->
 <!--		<parameter name="platformVersion" value="10"/>-->
 <!--		<classes>-->
-<!--			<class name="org.example.tests.SampleTest"/>-->
+<!--			<class name="org.example.tests.MenuNavigationTests"/>-->
 <!--		</classes>-->
 <!--	</test>-->
 <!--	<test name="Safari Test">-->

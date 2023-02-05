@@ -1,29 +1,31 @@
 package org.example.testUtils;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.options.XCUITestOptions;
 
 public class SetupUtil {
 
-	public static DesiredCapabilities getCapabilities(String deviceName, String udid, String platformName,
-	                                                  String platformVersion) {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
+	public static UiAutomator2Options getAndroidCapabilities(String deviceName, String udid, String platformName,
+	                                                         String platformVersion) {
+		
+		UiAutomator2Options uiAutomator2Options = new UiAutomator2Options();
+		uiAutomator2Options.setDeviceName(deviceName);
+		uiAutomator2Options.setUdid(udid);
+		uiAutomator2Options.setPlatformName(platformName);
+		uiAutomator2Options.setPlatformVersion(platformVersion);
+		uiAutomator2Options.setAutomationName("UiAutomator2");
+		uiAutomator2Options.setAppPackage("io.cloudgrey.the_app");
+		uiAutomator2Options.setAppActivity(".MainActivity");
+		uiAutomator2Options.setChromedriverExecutable("D:\\web-drivers\\chromedriver-old.exe");
+		uiAutomator2Options.setExtractChromeAndroidPackageFromContextName(true);
+		
+		return uiAutomator2Options;
+	}
 
-//		capabilities.setCapability("browserstack.user", "saomaster_rhtjE5");
-//		capabilities.setCapability("browserstack.key", "VPNxx8fsnsMLKiC6CaBR");
-		capabilities.setCapability("project", "First Java Project");
-		capabilities.setCapability("build", "browserstack-build-1");
-		capabilities.setCapability("name", "first_test");
-
-		capabilities.setCapability("appium:deviceName", deviceName);
-		capabilities.setCapability("appium:UUID", udid);
-		capabilities.setCapability("appium:platformName", platformName);
-		capabilities.setCapability("appium:platformVersion", platformVersion);
-		capabilities.setCapability("appium:automationName", "UiAutomator2");
-		capabilities.setCapability("appium:appPackage", "io.cloudgrey.the_app");
-		capabilities.setCapability("appium:appActivity", ".MainActivity");
-		capabilities.setCapability("appium:chromedriverExecutable", "D:\\web-drivers\\chromedriver-old.exe");
-		capabilities.setCapability("appium:extractChromeAndroidPackageFromContextName", true);
-
-		return capabilities;
+	public static XCUITestOptions getIosCapabilities(String deviceName, String udid, String platformName,
+	                                                         String platformVersion){
+		XCUITestOptions xcuiTestOptions = new XCUITestOptions();
+		
+		return xcuiTestOptions;
 	}
 }

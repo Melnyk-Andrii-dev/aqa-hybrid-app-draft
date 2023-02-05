@@ -1,2 +1,7 @@
-org\example\pages\AbstractPage.class
-org\example\pages\BasePage.class
+org\example\screens\BaseScreenIos.class
+org\example\guice\MainModule.class
+org\example\guice\ModuleFactory.class
+org\example\screens\HomeScreen.class
+org\example\screens\AbstractScreen.class
+org\example\screens\WebViewDemoScreen.class
+org\example\screens\BaseScreen.class
