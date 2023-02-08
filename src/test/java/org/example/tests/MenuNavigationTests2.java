@@ -12,7 +12,7 @@ import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
 @Guice(moduleFactory = ModuleFactory.class)
-public class MenuNavigationTests extends BaseTest implements ITest {
+public class MenuNavigationTests2 extends BaseTest implements ITest {
 
 	@Inject HomeScreen homeScreen;
 	@Inject WebViewDemoScreen webViewDemoScreen;
@@ -20,13 +20,15 @@ public class MenuNavigationTests extends BaseTest implements ITest {
 	@Inject BsTestScreen bsTestScreen;
 
 
-	@Test(description = "user can use main menu")
-	public void userCanUseMainMenu() {
+	@Test(description = "user can use main menu 2")
+	public void userCanUseMainMenu2() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}
+		
+		
 //		homeScreen.continuewWithPermissions();
 //		homeScreen.acceptPopup();
 //		homeScreen.selectWebViewDemoOption();
@@ -44,30 +46,8 @@ public class MenuNavigationTests extends BaseTest implements ITest {
 		Assert.assertTrue(true);
 	}
 
-	@Test(description = "user can use main menu - should fail")
-	public void userCanUseMainMenuShouldFail() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
-//		homeScreen.continuewWithPermissions();
-//		homeScreen.acceptPopup();
-//		homeScreen.selectWebViewDemoOption();
-//		webViewDemoScreen.typeInUrlField("https://appiumpro.com");
-//		webViewDemoScreen.pressGoButton();
-//		webViewDemoScreen.switchToWebView();
-//		webViewDemoScreen.pressBurgerMenuButton();
-//		webViewDemoScreen.selectLatestOption();
-		
-		
-		bsTestScreen.clickOnSearchWikipedia();
-		bsTestScreen.typeInSearch();
-		Assert.assertTrue(false);
-	}
-
 
 	@Override public String getTestName() {
-		return "Manu Navigation Test";
+		return "Manu Navigation Test 2";
 	}
 }

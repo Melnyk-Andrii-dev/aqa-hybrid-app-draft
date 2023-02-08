@@ -1,3 +1,5 @@
-org\example\testUtils\SetupUtil.class
 org\example\tests\MenuNavigationTests.class
+org\example\testUtils\CapabilityUtils.class
+org\example\testUtils\DriverUtils.class
 org\example\tests\BaseTest.class
+org\example\tests\MenuNavigationTests2.class

@@ -5,3 +5,5 @@ org\example\screens\HomeScreen.class
 org\example\screens\AbstractScreen.class
 org\example\screens\WebViewDemoScreen.class
 org\example\screens\BaseScreen.class
+org\example\screens\BsTestScreen.class
+org\example\screens\BsTestScreenIos.class

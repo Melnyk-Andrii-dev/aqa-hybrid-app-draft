@@ -1,50 +1,48 @@
 package org.example.tests;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.options.XCUITestOptions;
 import org.example.screens.AbstractScreen;
-import org.example.testUtils.SetupUtil;
+import org.example.testUtils.DriverUtils;
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTest {
-	private static final String SAUCELAB_ACCESS = "https://oauth-khiuhuvtt-81c5b:ce531912-9aff-4c40-811a-0e9f34df3019@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
-	
+
 	private AppiumDriver driver;
 
-	private AppiumDriver inicializeDriver(String deviceName, String udid, String platformName, String platformVersion)
-			throws MalformedURLException {
-		if(platformName.equalsIgnoreCase("android")) {
-			UiAutomator2Options androidCapabilities = SetupUtil.getAndroidCapabilities(deviceName, udid, platformName, platformVersion);
-			return new AndroidDriver(new URL("http://127.0.0.1:4723/"), androidCapabilities);
+	private void setRunResult(ITestResult testResult){
+		String beautifiedMethodName = testResult.getMethod().getMethodName().trim();
+		JavascriptExecutor jse = (JavascriptExecutor)AbstractScreen.getDriver();
+		jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\""+ testResult.getTestName()  +   "->" + testResult.getMethod().getDescription() +   " \" }}");
+		if(testResult.getStatus() == ITestResult.SUCCESS) {
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"This is good\"}}");
+		}else {
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"This one sucks\"}}");
 		}
-		else if (platformName.equalsIgnoreCase("ios")){
-			XCUITestOptions iosCapabilities = SetupUtil.getIosCapabilities(deviceName, udid, platformName, platformVersion);
-			return new IOSDriver(new URL("http://127.0.0.1:4723/"), iosCapabilities);
-		}
-		else throw new RuntimeException("PLATFORM NOT SUPPORTED");
 	}
-	
 
-	@Parameters({"deviceName", "udid", "platformName", "platformVersion"})
+	@Parameters({"deviceName", "udid", "platformName", "platformVersion", "isBrowserstackRun"})
 	@BeforeMethod(alwaysRun = true)
-	public void setup(String deviceName, String udid, String
-			platformName, String platformVersion) throws MalformedURLException {
-		driver = inicializeDriver(deviceName, udid, platformName, platformVersion);
+	public void setup(String deviceName, @Optional String udid, String
+			platformName, String platformVersion, boolean isBrowserstackRun) throws MalformedURLException {
+		driver = DriverUtils.inicializeDriver(deviceName, udid, platformName, platformVersion, isBrowserstackRun);
 		AbstractScreen.setDriverThreadLocal(driver);
 	}
 
 	@AfterMethod
-	public void closeDriver() {
+	public void closeDriver(ITestResult testResult) {
+
+		setRunResult(testResult);
+
 		if (driver != null) {
 			driver.quit();
 		}
 	}
+	
 }

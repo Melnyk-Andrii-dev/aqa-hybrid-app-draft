@@ -5,6 +5,7 @@ import java.util.Set;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.lang3.StringUtils;
+import org.testng.Reporter;
 //import org.openqa.selenium.support.ui.ExpectedConditions;
 //import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,7 +15,7 @@ public class BaseScreen extends AbstractScreen {
 	
 	public void continuewWithPermissions(){
 //		findElement(AppiumBy.id(CONTINUE_WITH_PERMISSIONS_BUTTON)).click();
-
+		Reporter.log("Continuing with permissions");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
