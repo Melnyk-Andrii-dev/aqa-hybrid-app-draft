@@ -16,14 +16,13 @@ public class BaseTest {
 
 	private AppiumDriver driver;
 
-	private void setRunResult(ITestResult testResult){
-		String beautifiedMethodName = testResult.getMethod().getMethodName().trim();
+	private void setBrowserstackRunResult(ITestResult testResult){
 		JavascriptExecutor jse = (JavascriptExecutor)AbstractScreen.getDriver();
 		jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\""+ testResult.getTestName()  +   "->" + testResult.getMethod().getDescription() +   " \" }}");
 		if(testResult.getStatus() == ITestResult.SUCCESS) {
 			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"This is good\"}}");
 		}else {
-			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"This one sucks\"}}");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"This is bad\"}}");
 		}
 	}
 
@@ -35,10 +34,13 @@ public class BaseTest {
 		AbstractScreen.setDriverThreadLocal(driver);
 	}
 
+	@Parameters({"isBrowserstackRun"})
 	@AfterMethod
-	public void closeDriver(ITestResult testResult) {
+	public void closeDriver(boolean isBrowserstackRun, ITestResult testResult) {
 
-		setRunResult(testResult);
+		if(isBrowserstackRun) {
+			setBrowserstackRunResult(testResult);
+		}
 
 		if (driver != null) {
 			driver.quit();

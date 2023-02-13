@@ -53,7 +53,7 @@
         <version>3.0.0-M5</version>
         <configuration>
 <!--          UNCOMMENT BELOW AND RUN THE GOAL IN DEBUG FOR DEBUGGING-->
-<!--          <forkCount>0</forkCount>      -->  
+          <forkCount>0</forkCount>       
           <suiteXmlFiles>
             <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>

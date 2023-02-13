@@ -7,6 +7,7 @@ public class WebViewDemoScreen extends BaseScreen{
 	private static final String GO_BUTTON = "//*[@text='Go']";
 	private static final String BURGER_MENU_BUTTON = "(//a[@id='toggleMenu'])[2]";
 	private static final String LATEST_OPTION = "(//div[@id='__next']/div/div[2]/div/ul/li)[3]";
+
 	
 	public void typeInUrlField(String url){
 		type(url, findElement(AppiumBy.accessibilityId(URL_FIELD)));

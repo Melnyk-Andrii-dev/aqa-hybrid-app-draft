@@ -1,23 +1,24 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestSuite" parallel="tests" thread-count="2">
+<suite name="TestSuite" parallel="tests" thread-count="1">
 	<parameter name="isBrowserstackRun" value="true"/>
-	<test name="Android Test">
-		<parameter name="deviceName" value="Samsung Galaxy S21"/>
-		<parameter name="udid" value="emulator-5554"/>
-		<parameter name="platformName" value="Android"/>
-		<parameter name="platformVersion" value="11.0"/>
-		<classes>
-			<class name="org.example.tests.MenuNavigationTests"/>
-			<class name="org.example.tests.MenuNavigationTests2"/>
-		</classes>
-	</test>
+<!--	<test name="Android Test">-->
+<!--		<parameter name="deviceName" value="Samsung Galaxy S21"/>-->
+<!--		<parameter name="udid" value="emulator-5554"/>-->
+<!--		<parameter name="platformName" value="android"/>-->
+<!--		<parameter name="platformVersion" value="11.0"/>-->
+<!--		<classes>-->
+<!--			<class name="org.example.tests.MenuNavigationTests"/>-->
+<!--&lt;!&ndash;			<class name="org.example.tests.MenuNavigationTests2"/>&ndash;&gt;-->
+<!--		</classes>-->
+<!--	</test>-->
 	<test name="iOS Test">
-		<parameter name="deviceName" value="iPhone 14"/>
+		<parameter name="deviceName" value="iPhone 12"/>
+		<parameter name="udid" value=""/>
 		<parameter name="platformName" value="ios"/>
-		<parameter name="platformVersion" value="16"/>
+		<parameter name="platformVersion" value="14"/>
 		<classes>
 			<class name="org.example.tests.MenuNavigationTests"/>
-			<class name="org.example.tests.MenuNavigationTests2"/>
+<!--			<class name="org.example.tests.MenuNavigationTests2"/>-->
 		</classes>
 	</test>
 <!--	<test name="Nexus Test">-->

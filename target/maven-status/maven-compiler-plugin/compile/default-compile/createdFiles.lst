@@ -1,9 +1,12 @@
-org\example\screens\BaseScreenIos.class
+org\example\screens\HomeScreenIos.class
 org\example\guice\MainModule.class
 org\example\guice\ModuleFactory.class
 org\example\screens\HomeScreen.class
+org\example\pageUtils\ContextSwitcher.class
 org\example\screens\AbstractScreen.class
 org\example\screens\WebViewDemoScreen.class
+org\example\pageUtils\ContextSwitcherIos.class
 org\example\screens\BaseScreen.class
 org\example\screens\BsTestScreen.class
 org\example\screens\BsTestScreenIos.class
+org\example\screens\WebViewDemoScreenIos.class

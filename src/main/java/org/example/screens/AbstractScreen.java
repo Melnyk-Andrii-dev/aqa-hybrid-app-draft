@@ -35,11 +35,11 @@ public class AbstractScreen {
 		Actions actions = new Actions(getDriver());
 		actions.click(element).build().perform();
 		char[] chars = text.toCharArray();
-		for (char c : chars) {
-//			element.sendKeys(String.valueOf(c));
-			actions.sendKeys(c + "").build().perform();
-			dummyWait(50);
-		}
+//		for (char c : chars) {
+//			actions.sendKeys(c + "").build().perform();
+//			dummyWait(50);
+//		}
+		element.sendKeys(text);
 	}
 	
 	private void dummyWait(int millis){

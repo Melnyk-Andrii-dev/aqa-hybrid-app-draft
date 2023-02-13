@@ -1,5 +1,6 @@
 package org.example.testUtils;
 
+import java.time.Duration;
 import java.util.HashMap;
 
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -7,11 +8,11 @@ import io.appium.java_client.ios.options.XCUITestOptions;
 
 public class CapabilityUtils {
 
-	private static final String BROWSERSTACK_USER_NAME = "kdkdkdkdddd_zxl0Mb";
-	private static final String BROWSERSTACK_ACCESS_KEY = "6LsBMC4LLYZetpgzp8CH";
+	private static final String BROWSERSTACK_USER_NAME = "andriimelnyk_bO5XUo";
+	private static final String BROWSERSTACK_ACCESS_KEY = "cS6DzbNukoydfUPVzUAD";
 
-	private static final String BROWSERSTACK_ANDROID_APP_URL = "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c";
-	private static final String BROWSERSTACK_IOS_APP_URL = "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d";
+	private static final String BROWSERSTACK_ANDROID_APP_URL = "bs://dd29fef22092d5003dce1141809b5f470f3cc485";
+	private static final String BROWSERSTACK_IOS_APP_URL = "bs://3ddc12d466506a9f4ee636aa65954aa4e2376f33";
 
 
 	private static HashMap<String, Object> getBrowserstackCapabilities(String platformName) {
@@ -24,7 +25,9 @@ public class CapabilityUtils {
 		browserstackOptions.put("projectName", "First Java Project");
 		browserstackOptions.put("buildName", "browserstack-build-1");
 		browserstackOptions.put("sessionName", "session");
-		browserstackOptions.put("appiumVersion", "2.0.0");
+//		browserstackOptions.put("appiumVersion", "2.0.0");
+		browserstackOptions.put("networkLogs", "true");
+		browserstackOptions.put("source", "appiumdesktop");
 
 		return browserstackOptions;
 	}
@@ -38,9 +41,18 @@ public class CapabilityUtils {
 		uiAutomator2Options.setPlatformName(platformName);
 		uiAutomator2Options.setPlatformVersion(platformVersion);
 
+		uiAutomator2Options.setNewCommandTimeout(Duration.ofSeconds(3600));
+		uiAutomator2Options.setChromedriverUseSystemExecutable(true);
+
+
 		if (isBrowserstackRun) {
 			uiAutomator2Options.setApp(BROWSERSTACK_ANDROID_APP_URL);
 			uiAutomator2Options.setCapability("bstack:options", getBrowserstackCapabilities(platformName));
+//			uiAutomator2Options.setCapability("browserName", "chrome");
+//			uiAutomator2Options.setChromedriverExecutable("D:\\web-drivers\\chromedriver-old.exe");
+//			uiAutomator2Options.setExtractChromeAndroidPackageFromContextName(true);
+//			uiAutomator2Options.setAutomationName("UiAutomator2");
+//			uiAutomator2Options.setAutoWebview(true);
 		} else {
 			uiAutomator2Options.setUdid(udid);
 			uiAutomator2Options.setAutomationName("UiAutomator2");
@@ -61,13 +73,21 @@ public class CapabilityUtils {
 		xcuiTestOptions.setUdid(udid);
 		xcuiTestOptions.setPlatformName(platformName);
 		xcuiTestOptions.setPlatformVersion(platformVersion);
+		
+		xcuiTestOptions.setCapability("automationName", "XCUITest");
+		xcuiTestOptions.setNewCommandTimeout(Duration.ofSeconds(3600));
+		xcuiTestOptions.setConnectHardwareKeyboard(true);
+		xcuiTestOptions.setCapability("os_version", "14");
+		
+		
+		
+		xcuiTestOptions.setIncludeSafariInWebviews(true);
 
 		if (isBrowserstackRun) {
 			xcuiTestOptions.setApp(BROWSERSTACK_IOS_APP_URL);
 			xcuiTestOptions.setCapability("bstack:options", getBrowserstackCapabilities(platformName));
 		} else {
 			xcuiTestOptions.setUdid(udid);
-			xcuiTestOptions.setAutomationName("xcuitest");
 			xcuiTestOptions.setApp("");
 		}
 

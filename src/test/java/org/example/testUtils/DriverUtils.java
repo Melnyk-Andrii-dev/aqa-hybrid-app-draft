@@ -37,7 +37,7 @@ public class DriverUtils {
 					iosCapabilities =
 					CapabilityUtils.getIosCapabilities(deviceName, udid, platformName, platformVersion,
 					                                   isBrowserstackRun);
-
+			
 			if (isBrowserstackRun) {
 				return new IOSDriver(new URL(BROWSERSTACK_URL_IOS), iosCapabilities);
 			} else {

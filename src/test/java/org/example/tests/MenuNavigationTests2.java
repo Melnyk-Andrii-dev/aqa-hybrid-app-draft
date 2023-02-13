@@ -3,6 +3,7 @@ package org.example.tests;
 import javax.inject.Inject;
 
 import org.example.guice.ModuleFactory;
+import org.example.pageUtils.ContextSwitcher;
 import org.example.screens.BsTestScreen;
 import org.example.screens.HomeScreen;
 import org.example.screens.WebViewDemoScreen;
@@ -18,30 +19,32 @@ public class MenuNavigationTests2 extends BaseTest implements ITest {
 	@Inject WebViewDemoScreen webViewDemoScreen;
 
 	@Inject BsTestScreen bsTestScreen;
+	
+	@Inject ContextSwitcher contextSwitcher;
 
 
-	@Test(description = "user can use main menu 2")
+	@Test(description = "user can use main menu 2 - this should pass")
 	public void userCanUseMainMenu2() {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}
-		
-		
-//		homeScreen.continuewWithPermissions();
-//		homeScreen.acceptPopup();
-//		homeScreen.selectWebViewDemoOption();
-//		webViewDemoScreen.typeInUrlField("https://appiumpro.com");
-//		webViewDemoScreen.pressGoButton();
-//		webViewDemoScreen.switchToWebView();
-//		webViewDemoScreen.pressBurgerMenuButton();
-//		webViewDemoScreen.selectLatestOption();
-		
 
 
-		bsTestScreen.clickOnSearchWikipedia();
-		bsTestScreen.typeInSearch();
+		homeScreen.continuewWithPermissions();
+		homeScreen.acceptPopup();
+		homeScreen.selectWebViewDemoOption();
+		webViewDemoScreen.typeInUrlField("https://appiumpro.com");
+		webViewDemoScreen.pressGoButton();
+		contextSwitcher.switchToWebView();
+		webViewDemoScreen.pressBurgerMenuButton();
+		webViewDemoScreen.selectLatestOption();
+
+
+
+//		bsTestScreen.clickOnSearchWikipedia();
+//		bsTestScreen.typeInSearch();
 
 		Assert.assertTrue(true);
 	}
