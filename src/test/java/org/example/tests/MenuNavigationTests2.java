@@ -3,7 +3,7 @@ package org.example.tests;
 import javax.inject.Inject;
 
 import org.example.guice.ModuleFactory;
-import org.example.pageUtils.ContextSwitcher;
+import org.example.screenUtils.ContextSwitcher;
 import org.example.screens.BsTestScreen;
 import org.example.screens.HomeScreen;
 import org.example.screens.WebViewDemoScreen;

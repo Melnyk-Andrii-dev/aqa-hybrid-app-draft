@@ -25,7 +25,7 @@ public class CapabilityUtils {
 		browserstackOptions.put("projectName", "First Java Project");
 		browserstackOptions.put("buildName", "browserstack-build-1");
 		browserstackOptions.put("sessionName", "session");
-//		browserstackOptions.put("appiumVersion", "2.0.0");
+		browserstackOptions.put("appiumVersion", "2.0.0");
 		browserstackOptions.put("networkLogs", "true");
 		browserstackOptions.put("source", "appiumdesktop");
 
