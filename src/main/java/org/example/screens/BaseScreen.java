@@ -6,5 +6,5 @@ package org.example.screens;
 
 public class BaseScreen extends AbstractScreen {
 
-	
+
 }

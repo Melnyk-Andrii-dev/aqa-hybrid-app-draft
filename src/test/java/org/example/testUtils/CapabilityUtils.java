@@ -1,15 +1,15 @@
 package org.example.testUtils;
 
-import java.time.Duration;
-import java.util.HashMap;
-
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.ios.options.XCUITestOptions;
 
+import java.time.Duration;
+import java.util.HashMap;
+
 public class CapabilityUtils {
 
-	private static final String BROWSERSTACK_USER_NAME = "andriimelnyk_bO5XUo";
-	private static final String BROWSERSTACK_ACCESS_KEY = "cS6DzbNukoydfUPVzUAD";
+	private static final String BROWSERSTACK_USER_NAME = "ronaldkewqa_UapQ7v";
+	private static final String BROWSERSTACK_ACCESS_KEY = "srTqZAvwHpkNxYTxzqWc";
 
 	private static final String BROWSERSTACK_ANDROID_APP_URL = "bs://dd29fef22092d5003dce1141809b5f470f3cc485";
 	private static final String BROWSERSTACK_IOS_APP_URL = "bs://3ddc12d466506a9f4ee636aa65954aa4e2376f33";

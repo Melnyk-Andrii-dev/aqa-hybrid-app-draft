@@ -1,7 +1,5 @@
 package org.example.tests;
 
-import javax.inject.Inject;
-
 import org.example.guice.ModuleFactory;
 import org.example.screenUtils.ContextSwitcher;
 import org.example.screens.BsTestScreen;
@@ -12,45 +10,51 @@ import org.testng.ITest;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
+import javax.inject.Inject;
+
 @Guice(moduleFactory = ModuleFactory.class)
 public class MenuNavigationTests2 extends BaseTest implements ITest {
 
-	@Inject HomeScreen homeScreen;
-	@Inject WebViewDemoScreen webViewDemoScreen;
+    @Inject
+    HomeScreen homeScreen;
+    @Inject
+    WebViewDemoScreen webViewDemoScreen;
 
-	@Inject BsTestScreen bsTestScreen;
-	
-	@Inject ContextSwitcher contextSwitcher;
+    @Inject
+    BsTestScreen bsTestScreen;
 
-
-	@Test(description = "user can use main menu 2 - this should pass")
-	public void userCanUseMainMenu2() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
+    @Inject
+    ContextSwitcher contextSwitcher;
 
 
-		homeScreen.continuewWithPermissions();
-		homeScreen.acceptPopup();
-		homeScreen.selectWebViewDemoOption();
-		webViewDemoScreen.typeInUrlField("https://appiumpro.com");
-		webViewDemoScreen.pressGoButton();
-		contextSwitcher.switchToWebView();
-		webViewDemoScreen.pressBurgerMenuButton();
-		webViewDemoScreen.selectLatestOption();
+    @Test(description = "user can use main menu 2 - this should pass")
+    public void userCanUseMainMenu2() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
+
+        homeScreen.continuewWithPermissions();
+        homeScreen.acceptPopup();
+        homeScreen.selectWebViewDemoOption();
+        webViewDemoScreen.typeInUrlField("https://appiumpro.com");
+        webViewDemoScreen.pressGoButton();
+        contextSwitcher.switchToWebView();
+        webViewDemoScreen.pressBurgerMenuButton();
+        webViewDemoScreen.selectLatestOption();
 
 
 //		bsTestScreen.clickOnSearchWikipedia();
 //		bsTestScreen.typeInSearch();
 
-		Assert.assertTrue(true);
-	}
+        Assert.assertTrue(true);
+    }
 
 
-	@Override public String getTestName() {
-		return "Manu Navigation Test 2";
-	}
+    @Override
+    public String getTestName() {
+        return "Manu Navigation Test 2";
+    }
 }
